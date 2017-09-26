@@ -2,6 +2,7 @@ class TicketsController < ApplicationController
   before_action :authenticate_technician!
 
   def index
+    @tickets = Ticket.all
   end
 
   def show

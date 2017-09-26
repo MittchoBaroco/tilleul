@@ -1,0 +1,76 @@
+<%= form_for @ticket do |f| %>
+  <fieldset>
+    <legend>Ticket information</legend>
+
+    <div class="">
+      <%= f.label :status %>
+      <%= f.select :status, options_for_select(TicketsHelper::STATUS) %>
+    </div>
+
+    <div class="">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="">
+      <%= f.label :impacted_service %>
+      <%= f.select :impacted_service, options_for_select(TicketsHelper::SERVICES) %>
+    </div>
+
+    <div class="">
+      <%= f.label :requester_name %>
+      <%= f.text_field :requester_name %>
+    </div>
+
+    <div class="">
+      <%= f.label :requester_email %>
+      <%= f.text_field :requester_email %>
+    </div>
+
+    <div class="">
+      <%= f.label :requester_phone %>
+      <%= f.text_field :requester_phone %>
+    </div>
+
+    <div class="">
+      <%= f.label :requester_details %>
+      <%= f.text_area :requester_details, placeholder: "language, departement, location" %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Assignation</legend>
+
+    <div class="">
+      <%= f.label :impact %>
+      <%= f.select :impact, options_for_select(TicketsHelper::IMPACTS) %>
+    </div>
+
+    <div class="">
+      <%= f.label :urgency %>
+      <%= f.select :urgency, options_for_select(TicketsHelper::URGENCIES) %>
+    </div>
+
+    <div class="">
+      <%= f.label :level_support %>
+      <%= f.select :level_support, options_for_select(TicketsHelper::SUPPORT_LEVELS) %>
+    </div>
+  </fieldset>
+
+  <div class="">
+    <%= f.label :technician_actions %>
+    <%= f.text_area :technician_actions %>
+  </div>
+
+  <!-- <ul>
+    <li>Resolution: #@ticket.resolution</li>
+  </ul> -->
+
+  <%= f.submit %>
+  <%= link_to "cancel", tickets_path%>
+<% end %>

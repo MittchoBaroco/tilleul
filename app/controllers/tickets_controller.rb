@@ -10,9 +10,17 @@ class TicketsController < ApplicationController
   end
 
   def new
+    @ticket = Ticket.new
   end
 
   def create
+    @ticket = Ticket.new ticket_params
+
+    if @ticket.save
+      redirect_to @ticket
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -23,4 +31,9 @@ class TicketsController < ApplicationController
 
   def destroy
   end
+
+  private
+    def ticket_params
+      params.require(:ticket).permit(:id, :title, :owner, :status, :requester_name, :requester_email, :requester_phone, :requester_details, :description, :impact, :urgency, :technician_actions, :level_support, :impacted_service)
+    end
 end

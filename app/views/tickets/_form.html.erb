@@ -48,12 +48,12 @@
 
     <div class="">
       <%= f.label :impact %>
-      <%= f.select :impact, options_for_select(TicketsHelper::IMPACTS) %>
+      <%= f.select :impact, options_for_select(TicketsHelper::IMPACTS.keys) %>
     </div>
 
     <div class="">
       <%= f.label :urgency %>
-      <%= f.select :urgency, options_for_select(TicketsHelper::URGENCIES) %>
+      <%= f.select :urgency, options_for_select(TicketsHelper::URGENCIES.keys) %>
     </div>
 
     <div class="">

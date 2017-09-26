@@ -1,0 +1,33 @@
+<h2>Ticket #<%= @ticket.id %></h2>
+
+<ul>
+  <li>Status: <%= @ticket.status %></li>
+  <li>Title: <%= @ticket.title %></li>
+  <li>Description: <%= @ticket.description %></li>
+  <li>impacted service: <%= @ticket.impacted_service %></li>
+  <li>requester name: <%= @ticket.requester_name %></li>
+  <li>requester email: <%= @ticket.requester_email %></li>
+  <li>requester phone: <%= @ticket.requester_phone %></li>
+  <li>requester details: <%= @ticket.requester_details %></li>
+</ul>
+<br>
+<ul>
+  <li>impact: <%= @ticket.impact %></li>
+  <li>urgency: <%= @ticket.urgency %></li>
+  <li>priority</li>
+  <li>concerned support level: <%= @ticket.level_support %></li>
+</ul>
+<br>
+<ul>
+  <li>Actions Done <%= @ticket.technician_actions %></li>
+</ul>
+<br>
+<ul>
+  <li>Resolution: #@ticket.resolution</li>
+</ul>
+
+<div class="history">
+  created_at - OWNER CREATED THIS TICKET
+  assigned_at - ASSIGNE IS ASSIGNED
+  resoltion_at - TICKET CLOSED
+</div>

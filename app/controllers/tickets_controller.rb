@@ -24,9 +24,17 @@ class TicketsController < ApplicationController
   end
 
   def edit
+    @ticket = Ticket.find(params[:id])
   end
 
   def update
+    @ticket = Ticket.find(params[:id])
+
+    if @ticket.update ticket_params
+      redirect_to @ticket
+    else
+      render 'edit'
+    end
   end
 
   def destroy

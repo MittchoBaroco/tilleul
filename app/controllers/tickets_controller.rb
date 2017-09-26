@@ -38,6 +38,7 @@ class TicketsController < ApplicationController
   end
 
   def destroy
+    #hummm nop
   end
 
   private

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170926134306) do
+ActiveRecord::Schema.define(version: 20170926135125) do
 
   create_table "technicians", force: :cascade do |t|
     t.string "first_name"
@@ -30,6 +30,24 @@ ActiveRecord::Schema.define(version: 20170926134306) do
     t.string "last_sign_in_ip"
     t.index ["email"], name: "index_technicians_on_email", unique: true
     t.index ["reset_password_token"], name: "index_technicians_on_reset_password_token", unique: true
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string "title"
+    t.string "owner"
+    t.string "status"
+    t.string "requester_name"
+    t.string "requester_email"
+    t.string "requester_phone"
+    t.string "requester_details"
+    t.text "description"
+    t.string "impact"
+    t.string "urgency"
+    t.text "technician_actions"
+    t.integer "level_support"
+    t.string "impacted_service"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

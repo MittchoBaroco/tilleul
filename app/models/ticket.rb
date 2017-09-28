@@ -11,6 +11,10 @@ class Ticket < ApplicationRecord
     end
   end
 
+  scope :assigned, -> (assignee) { open.where(assignee: assignee) }
+  scope :open, -> { where(status: ["New", "Assigned", "In Progress"]) }
+  scope :closed, -> { where(status: ["Invalid", "Resolved"]) }
+
   def priority
     impact_number = TicketsHelper::IMPACTS[impact]
     urgency_number = TicketsHelper::URGENCIES[urgency]

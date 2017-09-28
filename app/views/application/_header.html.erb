@@ -1,6 +1,8 @@
 <header>
-  <%= image_tag "logo.svg", height: 32, width: 32 %>
-  <h1 class="inline">
-    Tilleul
-  </h1>
+  <%= link_to root_path, class: 'title' do %>
+    <%= image_tag "logo.svg", height: 32, width: 32 %>
+    <h1 class="inline">
+      Tilleul
+    </h1>
+  <% end %>
 </header>

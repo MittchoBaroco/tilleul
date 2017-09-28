@@ -6,7 +6,7 @@
         <div class="w_50 mw_200">
           <div class="w_80 mb4">
             <%= f.label :status %>
-            <%= f.select :status, options_for_select(TicketsHelper::STATUS), :class =>'w_100' %>
+            <%= f.select :status, options_for_select(TicketsHelper::STATUS, @ticket.status), :class =>'w_100' %>
           </div>
 
           <div class="w_80 mb4">
@@ -21,7 +21,7 @@
 
           <div class="w_80 mb4">
             <%= f.label :impacted_service %>
-            <%= f.select :impacted_service, options_for_select(TicketsHelper::SERVICES), :class =>'w_100' %>
+            <%= f.select :impacted_service, options_for_select(TicketsHelper::SERVICES, @ticket.impacted_service), :class =>'w_100' %>
           </div>
 
           <div class="w_80 mb4 dn" id="other_service">
@@ -53,7 +53,7 @@
 
           <div class="w_80 mb4">
             <%= f.label :departement %>
-            <%= f.select :departement, options_for_select(TicketsHelper::DEPARTEMENT), :class =>'w_100' %>
+            <%= f.select :departement, options_for_select(TicketsHelper::DEPARTEMENT, @ticket.departement), :class =>'w_100' %>
           </div>
         </div>
       </div>
@@ -64,17 +64,17 @@
 
       <div class="mb4">
         <%= f.label :impact %>
-        <%= f.select :impact, options_for_select(TicketsHelper::IMPACTS.keys) %>
+        <%= f.select :impact, options_for_select(TicketsHelper::IMPACTS.keys, @ticket.impact) %>
       </div>
 
       <div class="mb4">
         <%= f.label :urgency %>
-        <%= f.select :urgency, options_for_select(TicketsHelper::URGENCIES.keys) %>
+        <%= f.select :urgency, options_for_select(TicketsHelper::URGENCIES.keys, @ticket.urgency) %>
       </div>
 
       <div class="mb4">
         <%= f.label :level_support %>
-        <%= f.select :level_support, options_for_select(TicketsHelper::SUPPORT_LEVELS) %>
+        <%= f.select :level_support, options_for_select(TicketsHelper::SUPPORT_LEVELS, @ticket.level_support) %>
       </div>
 
       <div class="mb4">

@@ -13,7 +13,7 @@
   <h3>Impacted service</h3>
   <p>
     <%= @ticket.impacted_service %>
-    <%= @ticket.other_service if @ticket.impacted_service == "other" %>
+    <%= "<br>#{@ticket.other_service}".html_safe if @ticket.impacted_service == "Other" %>
   </p>
 
 </div>
@@ -22,7 +22,7 @@
   <h3>Requester infos</h3>
   <p>
     <span class="b"><%= @ticket.requester_name %></span><br>
-    <small><%= @ticket.requester_email %> <%= " | #{@ticket.requester_phone}" unless @ticket.requester_phone.blank? %></small>
+    <small><%= @ticket.requester_email %> <%= " | #{@ticket.requester_phone}" unless @ticket.requester_phone.blank? %> <%= " | #{@ticket.departement}" %></small>
     <% unless @ticket.requester_details.blank? %>
       <p>extra infos: <%= @ticket.requester_details %></p>
     <% end %>

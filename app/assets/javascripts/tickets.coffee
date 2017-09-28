@@ -3,11 +3,17 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'turbolinks:load', ->
-  $('#ticket_impacted_service').change ->
-    region = $('#ticket_impacted_service :selected').text()
-    if region == "Other"
-      $("#other_service").fadeIn()
+  impacted_service = $('#ticket_impacted_service :selected').text()
+  if impacted_service == "Other"
+    $("#other_service").fadeIn()
 
+  $('#ticket_impacted_service').change ->
+    impacted_service = $('#ticket_impacted_service :selected').text()
+    if impacted_service == "Other"
+      $("#other_service").fadeIn()
+    else
+      $("#other_service").fadeOut()
+  
   $('.open_section').click ->
     button = this
     table = $(button).closest('h3').next('table')

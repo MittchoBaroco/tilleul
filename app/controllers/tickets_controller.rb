@@ -59,7 +59,7 @@ class TicketsController < ApplicationController
 
   private
     def set_ticket
-      @ticket = Ticket.find(params[:id])
+      @ticket = Ticket.includes(:owner, :assignee, :resolver).find(params[:id])
     end
 
     def ticket_params

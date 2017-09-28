@@ -17,3 +17,21 @@
  .title, .title:hover {
    text-decoration: none;
  }
+
+ .btn {
+   background-color: #125613;
+   color: #fff !important;
+   border: none;
+   display: inline-block;
+   padding: 5px 12px;
+   text-decoration: none;
+   font-size: 12px;
+   line-height: 20px;
+ }
+
+ .btn:hover {
+   background-color: #417F42;
+   text-decoration: none;
+   color: #fff;
+   cursor: pointer;
+ }

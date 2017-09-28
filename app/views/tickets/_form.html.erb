@@ -94,6 +94,6 @@
     <%= f.text_area :resolution, :class => 'w_100 blob' %>
   </div>
 
-  <%= f.submit %>
-  <%= link_to "cancel", tickets_path%>
+  <%= f.submit :class => 'btn' %>
+  <%= link_to "cancel", tickets_path, :class => 'btn' %>
 <% end %>

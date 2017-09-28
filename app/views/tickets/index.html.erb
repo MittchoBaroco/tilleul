@@ -20,14 +20,14 @@
       <th>Priority</th>
       <th>Action</th>
     </tr>
-    <tr>
     <% @my_tickets.each do |t| %>
-        <td><%= t.title %></td>
-        <td><%= t.status %></td>
-        <td><%= t.priority %></td>
-        <td><%= link_to icon('eye'), t %> <%= link_to icon('pencil'), edit_ticket_path(t) %></td>
+      <tr>
+          <td><%= t.title %></td>
+          <td><%= t.status %></td>
+          <td><%= t.priority %></td>
+          <td><%= link_to icon('eye'), t %> <%= link_to icon('pencil'), edit_ticket_path(t) %></td>
+      </tr>
     <% end %>
-  </tr>
   </table>
 </div>
 
@@ -41,15 +41,15 @@
       <th>Priority</th>
       <th>Action</th>
     </tr>
-    <tr>
     <% @open_tickets.each do |t| %>
-        <td><%= t.title %></td>
-        <td><%= t.status %></td>
-        <td><%= t.assignee.name %></td>
-        <td><%= t.priority %></td>
-        <td><%= link_to icon('eye'), t %> <%= link_to icon('pencil'), edit_ticket_path(t) %></td>
+      <tr>
+          <td><%= t.title %></td>
+          <td><%= t.status %></td>
+          <td><%= t.assignee.name if t.assignee %></td>
+          <td><%= t.priority %></td>
+          <td><%= link_to icon('eye'), t %> <%= link_to icon('pencil'), edit_ticket_path(t) %></td>
+      </tr>
     <% end %>
-  </tr>
   </table>
 </div>
 
@@ -63,14 +63,14 @@
       <th>Resolver</th>
       <th>Action</th>
     </tr>
-    <tr>
     <% @closed_tickets.each do |t| %>
-        <td><%= t.title %></td>
-        <td><%= t.status %></td>
-        <td><%= t.assignee.name if t.assignee %></td>
-        <td><%= t.resolver.name if t.resolver %></td>
-        <td><%= link_to icon('eye'), t %> <%= link_to icon('pencil'), edit_ticket_path(t) %></td>
+      <tr>
+          <td><%= t.title %></td>
+          <td><%= t.status %></td>
+          <td><%= t.assignee.name if t.assignee %></td>
+          <td><%= t.resolver.name if t.resolver %></td>
+          <td><%= link_to icon('eye'), t %> <%= link_to icon('pencil'), edit_ticket_path(t) %></td>
+      </tr>
     <% end %>
-  </tr>
   </table>
 </div>

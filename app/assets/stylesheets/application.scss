@@ -1,0 +1,30 @@
+$primary-color: #125613; //change this to the green in logo
+$secondary-color: #417F42; //change this to the green in logo
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "scaffolds";
+@import "ticket";
+@import "tickets";
+
+ .title, .title:hover {
+   text-decoration: none;
+ }
+
+ .btn {
+   background-color: $primary-color;
+   color: #fff !important;
+   border: none;
+   display: inline-block;
+   padding: 5px 12px;
+   text-decoration: none;
+   font-size: 12px;
+   line-height: 20px;
+ }
+
+ .btn:hover {
+   background-color: #417F42;
+   text-decoration: none;
+   color: #fff;
+   cursor: pointer;
+ }

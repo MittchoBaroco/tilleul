@@ -1,80 +1,87 @@
 <%= form_for @ticket do |f| %>
-  <fieldset>
-    <legend>Ticket information</legend>
+  <div class="flex w_100 mb4">
+    <fieldset class="w_80">
+      <legend>Ticket information</legend>
+      <div class="flex">
+        <div class="w_50 mw_200">
+          <div class="w_80 mb4">
+            <%= f.label :status %>
+            <%= f.select :status, options_for_select(TicketsHelper::STATUS), :class =>'w_100' %>
+          </div>
 
-    <div class="">
-      <%= f.label :status %>
-      <%= f.select :status, options_for_select(TicketsHelper::STATUS) %>
-    </div>
+          <div class="w_80 mb4">
+            <%= f.label :title %>
+            <%= f.text_field :title, :class =>'w_100' %>
+          </div>
 
-    <div class="">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </div>
+          <div class="w_80 mb4">
+            <%= f.label :description %>
+            <%= f.text_area :description, :class =>'w_100 blob' %>
+          </div>
 
-    <div class="">
-      <%= f.label :description %>
-      <%= f.text_area :description %>
-    </div>
+          <div class="w_80 mb4">
+            <%= f.label :impacted_service %>
+            <%= f.select :impacted_service, options_for_select(TicketsHelper::SERVICES), :class =>'w_100' %>
+          </div>
+        </div>
 
-    <div class="">
-      <%= f.label :impacted_service %>
-      <%= f.select :impacted_service, options_for_select(TicketsHelper::SERVICES) %>
-    </div>
+        <div class="w_50 mw_200">
+          <div class="w_80 mb4">
+            <%= f.label :requester_name %>
+            <%= f.text_field :requester_name, :class =>'w_100' %>
+          </div>
 
-    <div class="">
-      <%= f.label :requester_name %>
-      <%= f.text_field :requester_name %>
-    </div>
+         <div class="w_80 mb4">
+            <%= f.label :requester_email %>
+            <%= f.email_field :requester_email, :class =>'w_100' %>
+          </div>
 
-    <div class="">
-      <%= f.label :requester_email %>
-      <%= f.email_field :requester_email %>
-    </div>
+          <div class="w_80 mb4">
+            <%= f.label :requester_phone %>
+            <%= f.phone_field :requester_phone, :class =>'w_100' %>
+          </div>
 
-    <div class="">
-      <%= f.label :requester_phone %>
-      <%= f.phone_field :requester_phone %>
-    </div>
+          <div class="w_80 mb4">
+            <%= f.label :requester_details %>
+            <%= f.text_area :requester_details, :class =>'w_100 blob', placeholder: "language, departement, location" %>
+          </div>
+        </div>
+      </div>
+    </fieldset>
 
-    <div class="">
-      <%= f.label :requester_details %>
-      <%= f.text_area :requester_details, placeholder: "language, departement, location" %>
-    </div>
-  </fieldset>
+    <fieldset class="w_15">
+      <legend>Assignation</legend>
 
-  <fieldset>
-    <legend>Assignation</legend>
+      <div class="mb4">
+        <%= f.label :impact %>
+        <%= f.select :impact, options_for_select(TicketsHelper::IMPACTS.keys) %>
+      </div>
 
-    <div class="">
-      <%= f.label :impact %>
-      <%= f.select :impact, options_for_select(TicketsHelper::IMPACTS.keys) %>
-    </div>
+      <div class="mb4">
+        <%= f.label :urgency %>
+        <%= f.select :urgency, options_for_select(TicketsHelper::URGENCIES.keys) %>
+      </div>
 
-    <div class="">
-      <%= f.label :urgency %>
-      <%= f.select :urgency, options_for_select(TicketsHelper::URGENCIES.keys) %>
-    </div>
+      <div class="mb4">
+        <%= f.label :level_support %>
+        <%= f.select :level_support, options_for_select(TicketsHelper::SUPPORT_LEVELS) %>
+      </div>
 
-    <div class="">
-      <%= f.label :level_support %>
-      <%= f.select :level_support, options_for_select(TicketsHelper::SUPPORT_LEVELS) %>
-    </div>
-  </fieldset>
-
-  <div class="">
-    <%= f.label :assignee %>
-    <%= f.collection_select :assignee_id, Technician.all, :id, :name, include_blank: true %>
+      <div class="mb4">
+        <%= f.label :assignee %>
+        <%= f.collection_select :assignee_id, Technician.all, :id, :name, include_blank: true %>
+      </div>
+    </fieldset>
   </div>
 
-  <div class="">
+  <div class="mb4">
     <%= f.label :technician_actions %>
-    <%= f.text_area :technician_actions %>
+    <%= f.text_area :technician_actions, :class => 'w_100 blob' %>
   </div>
 
-  <div class="">
+  <div class="mb4">
     <%= f.label :resolution %>
-    <%= f.text_area :resolution %>
+    <%= f.text_area :resolution, :class => 'w_100 blob' %>
   </div>
 
   <%= f.submit %>

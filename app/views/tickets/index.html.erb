@@ -1,4 +1,4 @@
-<h2>Tickets</h2>
+<h2 class="title">Tickets</h2>
 
 <div class="">
   <%= link_to new_ticket_path do %>
@@ -7,47 +7,66 @@
 </div>
 
 <!-- TABS -->
-<a href="#mine">Assigned to me</a>
-<a href="#open">Open</a>
-<a href="#closed">Close</a>
+<!--
+<a class="link" href="#mine">Assigned to me</a>
+<a class="link" href="#open">Open</a>
+<a class="link" href="#closed">Close</a>
+-->
 
 <div class="" id="mine">
   <h3>My Tickets</h3>
-  <ul>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Priority</th>
+    </tr>
+    <tr>
     <% @my_tickets.each do |t| %>
-      <li>
-        <%= t.title %>
-        status: <%= t.status %>
-        <strong>priority: <%= t.priority %></strong>
-      </li>
+        <td><%= t.title %></td>
+        <td><%= t.status %></td>
+        <td><%= t.priority %></td>
     <% end %>
-  </ul>
+  </tr>
+  </table>
 </div>
 
 <div class="" id="open">
   <h3>All Open Ticket</h3>
-  <ul>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Assignee</th>
+      <th>Priority</th>
+    </tr>
+    <tr>
     <% @open_tickets.each do |t| %>
-      <li>
-        <%= t.title %>
-        status: <%= t.status %>
-        <%= "assignee: #{t.assignee.name}" if t.assignee %>
-        <strong>priority: <%= t.priority %></strong>
-      </li>
+        <td><%= t.title %></td>
+        <td><%= t.status %></td>
+        <td><%= t.assignee.name %></td>
+        <td><%= t.priority %></td>
     <% end %>
-  </ul>
+  </tr>
+  </table>
 </div>
 
 <div class="" id="closed">
   <h3>Closed Tickets</h3>
-  <ul>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Assignee</th>
+      <th>Resolver</th>
+    </tr>
+    <tr>
     <% @closed_tickets.each do |t| %>
-      <li>
-        <%= t.title %>
-        status: <%= t.status %>
-        <%= "assignee: #{t.assignee.name}" if t.assignee %>
-        <%= "resolver: #{t.resolver.name}" if t.resolver %>
-      </li>
+        <td><%= t.title %></td>
+        <td><%= t.status %></td>
+        <td><%= "assignee: #{t.assignee.name}" if t.assignee %></td>
+        <td> <%= "resolver: #{t.resolver.name}" if t.resolver %></td>
     <% end %>
-  </ul>
+  </tr>
+  </table>
 </div>

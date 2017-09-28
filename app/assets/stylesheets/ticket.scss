@@ -1,0 +1,78 @@
+$primary-color: #125613; //change this to the green in logo
+
+// General
+h1 {
+  color: $primary-color;
+  font-size: 26px;
+}
+h2 {
+  color: $primary-color;
+  font-size: 22px;
+}
+h3 {
+  color: $primary-color;
+  font-size: 16px;
+}
+a, a:visited, a:active {
+  color: $primary-color;
+  background-color: none;
+  text-decoration: none;
+}
+a:hover {
+  color: #123456;
+  background-color: none !important;
+  text-decoration: underline;
+}
+
+.inline {
+  display: inline;
+}
+
+.red {
+  color: #a01010;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.w_100 {
+  width: 100%;
+}
+.w_80 {
+  width: 80%;
+}
+.w_50 {
+  width: 50%;
+}
+.w_15 {
+  width: 15%;
+}
+
+.mw_200 {
+  min-width: 200px;
+}
+
+.blob {
+  height: 10em;
+}
+.m0 {
+  margin: 0;
+}
+.mb4 {
+  margin-bottom: 16px;
+}
+
+// Specific
+fieldset {
+  border-color: $primary-color;
+  border-radius: 5px;
+}
+
+// Media queries
+@media screen and (max-width: 1450px) {
+}

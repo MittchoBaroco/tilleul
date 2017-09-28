@@ -16,6 +16,7 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new ticket_params
+    @ticket.owner = current_technician
 
     respond_to do |format|
       if @ticket.save

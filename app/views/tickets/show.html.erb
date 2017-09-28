@@ -29,13 +29,13 @@
 <div class="history">
   <ul>
     <% unless @ticket.created_at.blank? %>
-      <li><%= @ticket.created_at %> - created by OWNER</li>
+      <li><%= @ticket.created_at %> - created by <%= @ticket.owner.name %></li>
     <% end %>
     <% unless @ticket.assigned_at.blank? %>
-      <li><%= @ticket.assigned_at %> - assigned to ASSIGNEE</li>
+      <li><%= @ticket.assigned_at %> - assigned to <%= @ticket.assignee.name %></li>
     <% end %>
     <% unless @ticket.resolved_at.blank? %>
-      <li><%= @ticket.resolved_at %> - closed by ASSIGNEE</li>
+      <li><%= @ticket.resolved_at %> - closed by <%= @ticket.resolver.name %></li>
     <% end %>
   </ul>
 </div>

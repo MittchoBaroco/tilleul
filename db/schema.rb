@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170928064849) do
+ActiveRecord::Schema.define(version: 20170928065611) do
 
   create_table "technicians", force: :cascade do |t|
     t.string "first_name"
@@ -51,6 +51,12 @@ ActiveRecord::Schema.define(version: 20170928064849) do
     t.text "resolution"
     t.datetime "assigned_at"
     t.datetime "resolved_at"
+    t.integer "owner_id"
+    t.integer "assignee_id"
+    t.integer "resolver_id"
+    t.index ["assignee_id"], name: "index_tickets_on_assignee_id"
+    t.index ["owner_id"], name: "index_tickets_on_owner_id"
+    t.index ["resolver_id"], name: "index_tickets_on_resolver_id"
   end
 
 end

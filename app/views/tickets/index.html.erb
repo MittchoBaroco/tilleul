@@ -64,8 +64,8 @@
     <% @closed_tickets.each do |t| %>
         <td><%= t.title %></td>
         <td><%= t.status %></td>
-        <td><%= "assignee: #{t.assignee.name}" if t.assignee %></td>
-        <td> <%= "resolver: #{t.resolver.name}" if t.resolver %></td>
+        <td><%= t.assignee.name if t.assignee %></td>
+        <td><%= t.resolver.name if t.resolver %></td>
     <% end %>
   </tr>
   </table>

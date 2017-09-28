@@ -19,6 +19,14 @@ p, ol, ul, td {
   display: table;
 }
 
+th {
+  padding-bottom: 5px;
+}
+
+td {
+  padding: 0 5px 7px;
+}
+
 #error_explanation {
   width: 450px;
   border: 2px solid red;

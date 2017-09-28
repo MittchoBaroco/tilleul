@@ -33,8 +33,11 @@ class TicketsController < ApplicationController
   end
 
   def update
+    @ticket.assign_attributes(ticket_params)
+    @ticket.resolver = current_technician if @ticket.resolution_changed?
+
     respond_to do |format|
-      if @ticket.update(ticket_params)
+      if @ticket.save(ticket_params)
         format.html { redirect_to @ticket, notice: 'The ticket was successfully updated.' }
         format.json { render :show, status: :ok, location: @ticket }
       else

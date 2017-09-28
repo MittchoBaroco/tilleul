@@ -1,4 +1,4 @@
-<h1>Tickets</h1>
+<h2>Tickets</h2>
 
 <div class="">
   <%= link_to new_ticket_path do %>
@@ -10,3 +10,44 @@
 <a href="#mine">Assigned to me</a>
 <a href="#open">Open</a>
 <a href="#closed">Close</a>
+
+<div class="" id="mine">
+  <h3>My Tickets</h3>
+  <ul>
+    <% @my_tickets.each do |t| %>
+      <li>
+        <%= t.title %>
+        status: <%= t.status %>
+        <strong>priority: <%= t.priority %></strong>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="" id="open">
+  <h3>All Open Ticket</h3>
+  <ul>
+    <% @open_tickets.each do |t| %>
+      <li>
+        <%= t.title %>
+        status: <%= t.status %>
+        <%= "assignee: #{t.assignee.name}" if t.assignee %>
+        <strong>priority: <%= t.priority %></strong>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="" id="closed">
+  <h3>Closed Tickets</h3>
+  <ul>
+    <% @closed_tickets.each do |t| %>
+      <li>
+        <%= t.title %>
+        status: <%= t.status %>
+        <%= "assignee: #{t.assignee.name}" if t.assignee %>
+        <%= "resolver: #{t.resolver.name}" if t.resolver %>
+      </li>
+    <% end %>
+  </ul>
+</div>

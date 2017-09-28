@@ -3,7 +3,11 @@ class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
+    @my_tickets = Ticket.all
+    @open_tickets = Ticket.all
+    @closed_tickets = Ticket.all
     @tickets = Ticket.all
+
     respond_to :html, :json
   end
 

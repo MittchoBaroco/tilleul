@@ -27,7 +27,15 @@
 </ul>
 
 <div class="history">
-  created_at - OWNER CREATED THIS TICKET
-  assigned_at - ASSIGNE IS ASSIGNED
-  resoltion_at - TICKET CLOSED
+  <ul>
+    <% unless @ticket.created_at.blank? %>
+      <li><%= @ticket.created_at %> - created by OWNER</li>
+    <% end %>
+    <% unless @ticket.assigned_at.blank? %>
+      <li><%= @ticket.assigned_at %> - assigned to ASSIGNEE</li>
+    <% end %>
+    <% unless @ticket.resolved_at.blank? %>
+      <li><%= @ticket.resolved_at %> - closed by ASSIGNEE</li>
+    <% end %>
+  </ul>
 </div>

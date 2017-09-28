@@ -28,3 +28,16 @@ $secondary-color: #417F42; //change this to the green in logo
    color: #fff;
    cursor: pointer;
  }
+
+ .dim {
+   opacity: 1;
+   -webkit-transition: opacity .15s ease-in;
+   transition: opacity .15s ease-in;
+ }
+
+.dim:hover, .dim:focus {
+  opacity: .5;
+  -webkit-transition: opacity .15s ease-in;
+  transition: opacity .15s ease-in;
+  cursor: pointer;
+}

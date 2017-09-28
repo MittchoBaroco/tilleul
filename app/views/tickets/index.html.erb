@@ -11,8 +11,8 @@
 <a class="link" href="#closed">Close</a>
 -->
 
-<div class="" id="mine">
-  <h3>My Tickets</h3>
+<div class="tickets_index" id="mine">
+  <h3>My Tickets - <%= @my_tickets.count %> <span><%= icon('caret-up', class: 'dim open_section') %></span></h3>
   <table>
     <tr>
       <th>Title</th>
@@ -31,9 +31,9 @@
   </table>
 </div>
 
-<div class="" id="open">
-  <h3>All Open Ticket</h3>
-  <table>
+<div class="tickets_index" id="open">
+  <h3>Open Tickets - <%= @open_tickets.count %> <span><%= icon('caret-down', class: 'dim open_section') %></span></h3>
+  <table class="dn">
     <tr>
       <th>Title</th>
       <th>Status</th>
@@ -53,9 +53,9 @@
   </table>
 </div>
 
-<div class="" id="closed">
-  <h3>Closed Tickets</h3>
-  <table>
+<div class="tickets_index" id="closed">
+  <h3>Closed Tickets - <%= @closed_tickets.count %> <span><%= icon('caret-down', class: 'dim open_section') %></span></h3>
+  <table class="dn">
     <tr>
       <th>Title</th>
       <th>Status</th>

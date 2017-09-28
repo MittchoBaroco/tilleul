@@ -67,9 +67,10 @@
     <%= f.text_area :technician_actions %>
   </div>
 
-  <!-- <ul>
-    <li>Resolution: #@ticket.resolution</li>
-  </ul> -->
+  <div class="">
+    <%= f.label :resolution %>
+    <%= f.text_area :resolution %>
+  </div>
 
   <%= f.submit %>
   <%= link_to "cancel", tickets_path%>

@@ -63,6 +63,11 @@
   </fieldset>
 
   <div class="">
+    <%= f.label :assignee %>
+    <%= f.collection_select :assignee_id, Technician.all, :id, :name, include_blank: true %>
+  </div>
+
+  <div class="">
     <%= f.label :technician_actions %>
     <%= f.text_area :technician_actions %>
   </div>

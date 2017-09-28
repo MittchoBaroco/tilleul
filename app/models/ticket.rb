@@ -9,7 +9,37 @@ class Ticket < ApplicationRecord
       self.resolved_at = DateTime.now
       self.status = "Resolved"
     end
+
+    self.other_service = nil unless impacted_service == "Other"
+
+    self.title.capitalize!
   end
+
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :requester_name, presence: true
+  validates :requester_email, presence: true
+
+  validates :status, presence: true,
+                     inclusion: { in: TicketsHelper::STATUS }
+
+  validates :impacted_service, presence: true,
+                     inclusion: { in: TicketsHelper::SERVICES }
+
+  validates :impact, presence: true,
+                               inclusion: { in: TicketsHelper::IMPACTS }
+
+  validates :urgency, presence: true,
+                               inclusion: { in: TicketsHelper::URGENCIES }
+
+  validates :level_support, presence: true,
+                               inclusion: { in: TicketsHelper::SUPPORT_LEVELS }
+
+  validates :departement, presence: true,
+                               inclusion: { in: TicketsHelper::DEPARTEMENT }
+
+  validates_format_of :requester_email, with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
+
 
   scope :assigned, -> (assignee) { open.where(assignee: assignee) }
   scope :open, -> { where(status: ["New", "Assigned", "In Progress"]) }

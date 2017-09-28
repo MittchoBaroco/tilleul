@@ -1,43 +1,89 @@
-<h2>Ticket #<%= @ticket.id %></h2>
+<h2>Ticket #<%= @ticket.id %> - <%= @ticket.title %></h2>
 
-<ul>
-  <li>Status: <%= @ticket.status %></li>
-  <li>Title: <%= @ticket.title %></li>
-  <li>Description: <%= @ticket.description %></li>
-  <li>impacted service: <%= @ticket.impacted_service %></li>
-  <li>requester name: <%= @ticket.requester_name %></li>
-  <li>requester email: <%= @ticket.requester_email %></li>
-  <li>requester phone: <%= @ticket.requester_phone %></li>
-  <li>requester details: <%= @ticket.requester_details %></li>
-</ul>
-<br>
-<ul>
-  <li>impact: <%= @ticket.impact %></li>
-  <li>urgency: <%= @ticket.urgency %></li>
-  <li>priority: <%= @ticket.priority %></li>
-  <li>concerned support level: <%= @ticket.level_support %></li>
-</ul>
-<br>
-<ul>
-  <li>Actions Done <%= @ticket.technician_actions %></li>
-</ul>
-<br>
-<ul>
-  <li>Resolution: <%= @ticket.resolution %></li>
-</ul>
+<p class="label">
+  Status: <%= @ticket.status %>
+</p>
 
-<div class="history">
-  <ul>
-    <% unless @ticket.created_at.blank? %>
-      <li><%= @ticket.created_at %> - created by <%= @ticket.owner.name %></li>
-    <% end %>
-    <% unless @ticket.assigned_at.blank? %>
-      <li><%= @ticket.assigned_at %> - assigned to <%= @ticket.assignee.name %></li>
-    <% end %>
-    <% unless @ticket.resolved_at.blank? %>
-      <li><%= @ticket.resolved_at %> - closed by <%= @ticket.resolver.name %></li>
-    <% end %>
-  </ul>
+<div class="">
+  <h3>Description</h3>
+  <p><%= @ticket.description %></p>
 </div>
 
-<%= link_to "back", tickets_path, class: 'btn' %>
+<div class="">
+  <h3>Impacted service</h3>
+  <p>
+    <%= @ticket.impacted_service %>
+    <%= @ticket.other_service if @ticket.impacted_service == "other" %>
+  </p>
+
+</div>
+
+<div class="">
+  <h3>Requester infos</h3>
+  <p>
+    <span class="b"><%= @ticket.requester_name %></span><br>
+    <small><%= @ticket.requester_email %> <%= " | #{@ticket.requester_phone}" unless @ticket.requester_phone.blank? %></small>
+    <% unless @ticket.requester_details.blank? %>
+      <p>extra infos: <%= @ticket.requester_details %></p>
+    <% end %>
+  </p>
+</div>
+
+<div id="support_infos">
+  <div class="">
+    <div class="dib mr2">
+      <h3>Impact</h3>
+      <p><%= @ticket.impact %></p>
+    </div>
+
+    <div class="dib mr2">
+      <h3>Urgency</h3>
+      <p><%= @ticket.urgency %></p>
+    </div>
+
+    <div class="dib mr2">
+      <h3>Priority</h3>
+      <p class="b"><%= @ticket.priority %></p>
+    </div>
+
+    <h3>Support level</h3>
+    <p><%= @ticket.level_support %></p>
+  </div>
+</div>
+
+<% unless @ticket.technician_actions.blank? %>
+
+  <div class="">
+    <h3>Actions</h3>
+    <p>
+      <%= @ticket.technician_actions %>
+    </p>
+  </div>
+
+<% end %>
+
+<% unless @ticket.resolution.blank? %>
+
+  <div class="">
+    <h3>Resolution</h3>
+    <p class="b">
+      <%= @ticket.resolution %>
+    </p>
+  </div>
+
+<% end %>
+
+<div class="history">
+  <h3>History of action</h3>
+  <% unless @ticket.created_at.blank? %>
+    <p><span class="b"> <%= @ticket.created_at.strftime("%d %b %H:%M") %></span> - created by <%= @ticket.owner.name %></p>
+  <% end %>
+  <% unless @ticket.assigned_at.blank? %>
+    <p><span class="b"> <%= @ticket.assigned_at.strftime("%d %b %H:%M") %></span> - assigned to <%= @ticket.assignee.name %></p>
+  <% end %>
+  <% unless @ticket.resolved_at.blank? %>
+    <p><span class="b"> <%= @ticket.resolved_at.strftime("%d %b %H:%M") %></span> - closed by <%= @ticket.resolver.name %></p>
+  <% end %>
+</div>
+
+<%= link_to "back", tickets_path, class: 'btn' %> <%= link_to "Edit", edit_ticket_path(@ticket), class: 'btn' %>

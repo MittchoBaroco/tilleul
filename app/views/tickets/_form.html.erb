@@ -23,6 +23,11 @@
             <%= f.label :impacted_service %>
             <%= f.select :impacted_service, options_for_select(TicketsHelper::SERVICES), :class =>'w_100' %>
           </div>
+
+          <div class="w_80 mb4" id="other_service">
+            <%= f.label :other_service %>
+            <%= f.text_area :other_service, :class =>'w_100 blob' %>
+          </div>
         </div>
 
         <div class="w_50 mw_200">
@@ -43,7 +48,12 @@
 
           <div class="w_80 mb4">
             <%= f.label :requester_details %>
-            <%= f.text_area :requester_details, :class =>'w_100 blob', placeholder: "language, departement, location" %>
+            <%= f.text_area :requester_details, :class =>'w_100 blob', placeholder: "language, access" %>
+          </div>
+
+          <div class="w_80 mb4">
+            <%= f.label :departement %>
+            <%= f.select :departement, options_for_select(TicketsHelper::DEPARTEMENT), :class =>'w_100' %>
           </div>
         </div>
       </div>

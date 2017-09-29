@@ -50,6 +50,20 @@ $secondary-color: #417F42; //change this to the green in logo
   margin-right: 2rem;
 }
 
+.mb1 {
+  margin-bottom: 1rem;
+}
+
+.mt1 {
+  margin-top: 1rem;
+}
+
 .b {
   font-weight: bold;
+}
+
+.login {
+  padding: 20px 30px;
+  border: 1px solid $secondary-color;
+  border-radius: 5px;
 }

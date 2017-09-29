@@ -21,6 +21,20 @@ a:hover {
   background-color: none !important;
   text-decoration: underline;
 }
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  width: 100%;
+  margin: 0;
+  margin-left: -20px;
+  p {
+    margin-left: 20px;
+  }
+}
+table {
+  width: 100%;
+}
 
 .inline {
   display: inline;
@@ -37,9 +51,17 @@ a:hover {
   align-items: flex-start;
   align-content: flex-start;
 }
+.right {
+  display: inline;
+  float:right;
+}
 
 .dn {
   display: none;
+}
+
+.center {
+  margin: auto;
 }
 
 .w_100 {
@@ -75,6 +97,19 @@ fieldset {
   border-radius: 5px;
 }
 
+
+
 // Media queries
-@media screen and (max-width: 1450px) {
+@media screen and (max-width: 1140px) {
+  fieldset.fs_ticket_info {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 470px) {
+  fieldset.fs_ticket_info {
+    width: 100%;
+    .w_50 {
+      width: 100%;
+    }
+  }
 }
